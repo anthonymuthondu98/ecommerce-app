@@ -26,13 +26,14 @@ export default function ProductDetails() {
     const [activeImageIndex, setActiveImageIndex] = useState(0);
 
     const fetchProduct = async () => {
-        setProduct(dummyProducts.find((product) => product._id === id) as any);
+        const found: any = dummyProducts.find((product) => product._id === id);
+        setProduct(found ?? null);
         setLoading(false);
     }
 
     useEffect(() => {
         fetchProduct();
-    }, []);
+    }, [id]);
 
     if (loading) {
         return (
@@ -61,7 +62,7 @@ export default function ProductDetails() {
             })
             return;
         }
-        addToCart(product, selectedSize || "");
+        addToCart(product, selectedSize || "")
     }
 
     return (
