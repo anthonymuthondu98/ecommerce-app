@@ -6,10 +6,11 @@ import Header from '@/components/Header'
 import { Ionicons } from '@expo/vector-icons'
 import { COLORS } from '@/constants'
 import ProductCard from '@/components/ProductCard'
+import { Product } from '@/constants/types'
 
 export default function Shop() {
 
-    const [products, setProducts] = useState<Product>([])
+    const [products, setProducts] = useState<Product[]>([])
     const [loading, setLoading] = useState(true)
     const [loadingMore, setLoadingMore] = useState(false)
     const [page, setPage] = useState(1);
